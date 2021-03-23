@@ -26,16 +26,16 @@ public class SimpleInterHttpResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("echo/{name}")
-    public EchoMO echo(@PathParam String name) {
+    @Path("/echo/{name}")
+    public EchoMO echo(@PathParam("name") String name) {
         LOG.info("Echo "+name);
         return service.echo(name);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("chain/{name}")
-    public EchoMO chain(@PathParam String name) {
+    @Path("/chain/{name}")
+    public EchoMO chain(@PathParam("name") String name) {
         LOG.info("Chain "+name);
         EchoMO mo = service.echo(name);
         return routeResourceClient.route(mo);
