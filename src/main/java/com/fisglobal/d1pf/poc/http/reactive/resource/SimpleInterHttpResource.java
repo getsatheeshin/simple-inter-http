@@ -1,6 +1,8 @@
 package com.fisglobal.d1pf.poc.http.reactive.resource;
 
 import javax.inject.Inject;
+//import javax.json.bind.annotation.JsonbProperty;
+//import javax.ws.rs.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -8,7 +10,6 @@ import com.fisglobal.d1pf.poc.http.model.EchoMO;
 import com.fisglobal.d1pf.poc.http.reactive.svc.SimpleService;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -55,5 +56,11 @@ public class SimpleInterHttpResource {
     @Path("ping")
     public String ping() {
         return "d1platform-innerhttp-ping::"+ ThreadLocalRandom.current().nextLong(0,Long.MAX_VALUE);
+    }
+
+    @GET
+    @Path("ping2")
+    public void ping2() {
+        LOG.info("I'm VOID");
     }
 }
