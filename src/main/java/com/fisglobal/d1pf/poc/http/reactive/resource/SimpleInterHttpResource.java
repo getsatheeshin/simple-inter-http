@@ -39,6 +39,8 @@ public class SimpleInterHttpResource {
     public EchoMO chain(@PathParam("name") String name) {
         LOG.info("Chain "+name);
         EchoMO mo = service.echo(name);
+//        if(true)
+//            throw new InternalServerErrorException("SATHEESH THROW 500");
         return routeResourceClient.route(mo);
     }
 
